@@ -1,0 +1,28 @@
+project:
+  title: projet oracle
+  output-dir: output
+title: "Rapport projet Oracle"
+self-contained: true
+output-file: rapport_JOURDAM_VOROS
+title-block-style: default
+title-block-banner: true
+author-title: Auteurs
+affiliations:
+  - id: eseo
+    name: ESEO Angers
+author: 
+  - name: Joshua JOURDAM
+    affiliations:
+      - ref: eseo
+  - name: Matthias VOROS
+    affiliations:
+      - ref: eseo
+date: today
+lang: fr
+format:
+  html :
+    embed-resources: true
+toc: true
+number-sections: true
+filters:
+   - include-code-files
