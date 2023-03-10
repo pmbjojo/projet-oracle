@@ -1,4 +1,60 @@
-## Quarto
+Introduction
 
-```{.sql include="../A-2.sql" code-line-numbers="true"}
+
+
+```uml
+Region (idregion, nom)
+Vin (idvin, nom, appellation, type, provenance*)
+Article (idarticle, millesime, contenance, prixht, vin*)
+Client (idclient, nom, age, habite*);
+Achat (idachat, article*, client*, dateachat, quantite, ristourne)
 ```
+
+## Création et gestion des Triggers sous ORACLE
+
+###
+```{.sql include="../trigger_1.sql" code-line-numbers="true"}
+```
+###
+```{.sql include="../trigger_2.sql" code-line-numbers="true"}
+```
+###
+```{.sql include="../trigger_3.sql" code-line-numbers="true"}
+```
+###
+```{.sql include="../trigger_4.sql" code-line-numbers="true"}
+```
+###
+```{.sql include="../trigger_5.sql" code-line-numbers="true"}
+```
+###
+```{.sql include="../trigger_6.sql" code-line-numbers="true"}
+```
+###
+```{.sql include="../trigger_7.sql" code-line-numbers="true"}
+```
+###
+###
+```{.sql include="../trigger_8.sql" code-line-numbers="true"}
+```
+
+## Création et gestion des vues sous ORACLE
+
+###
+###
+###
+###
+###
+###
+###
+
+## Des fonctions, procédures et curseurs en PLSQL
+
+###
+###
+###
+###
+###
+###
+###
+###

@@ -23,6 +23,7 @@ format:
   html :
     embed-resources: true
 toc: true
+toc-depth: 2
 number-sections: true
 filters:
    - include-code-files
