@@ -4,25 +4,29 @@ CREATE OR REPLACE TRIGGER INTERDIT_ACHAT_WEEKEND BEFORE
 DECLARE
     JOUR_SEMAINE VARCHAR2(20);
 BEGIN
-    JOUR_SEMAINE := TO_CHAR(:NEW.DATEACHAT, 'Day');
-    IF (UPPER(JOUR_SEMAINE) = 'SATURDAY'
-    OR UPPER(JOUR_SEMAINE) = 'SUNDAY') THEN
+    JOUR_SEMAINE := TO_CHAR(:NEW.DATEACHAT, 'fmday');
+    IF UPPER(TO_CHAR(:NEW.DATEACHAT, 'fmday')) IN ('SUNDAY', 'SATURDAY') THEN
         RAISE_APPLICATION_ERROR(-20001, 'L''achat est interdit le week-end');
     END IF;
     IF (:NEW.QUANTITE > 12) THEN
         RAISE_APPLICATION_ERROR(-20002, 'La quantité ne doit pas dépasser 12');
     END IF;
 END;
-/
-
- -- Test
+ -- Test weekend
  INSERT INTO ACHAT VALUES (
-    22335,
+    22339,
     23,
     3,
     TO_DATE('12/03/2023', 'DD/MM/YYYY'),
-    15,
+    10,
     7
 );
-
-SELECT TO_CHAR(DATEACHAT, 'Day'), IDACHAT FROM ACHAT;
+ -- Test quantitée
+ INSERT INTO ACHAT VALUES (
+    22339,
+    23,
+    3,
+    TO_DATE('12/03/2023', 'DD/MM/YYYY'),
+    10,
+    7
+);

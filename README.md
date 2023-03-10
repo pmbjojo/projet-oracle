@@ -24,6 +24,9 @@ podman exec -it <id> bash
 
 ## Créer un compte utilisateur
 
-Utiliser le fichier user.sql
+```sql
+CREATE USER PROJET IDENTIFIED BY projet;
+GRANT CONNECT, RESOURCE TO PROJET;
+```
 
 ## Se reconnecter avec le nouvel utilisateur
