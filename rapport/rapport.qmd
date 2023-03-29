@@ -12,10 +12,10 @@ Achat (idachat, article*, client*, dateachat, quantite, ristourne)
 
 ## Création et gestion des Triggers sous ORACLE
 
-###
+1. COUCOU
 ```{.sql include="../trigger_1.sql" code-line-numbers="true"}
 ```
-###
+1. COUCOU
 ```{.sql include="../trigger_2.sql" code-line-numbers="true"}
 ```
 ###

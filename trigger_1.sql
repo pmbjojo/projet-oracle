@@ -4,7 +4,7 @@ BEFORE
   FOR EACH ROW
   BEGIN
     IF (:new.AGE<18)
-      THEN raise_application_error(-20001,'L''age n''est pas approprié :');
+      THEN raise_application_error(-20001,'L''age n''est pas appropriÃ© :');
     END IF;
 END;    
 

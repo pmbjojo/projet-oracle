@@ -1,0 +1,15 @@
+CREATE VIEW AUDIT_ACHAT_VIN_VIEW AS
+    SELECT
+        A.IDACHAT,
+        V.IDVIN,
+        V.NOM,
+        A.QUANTITE,
+        A.DATEACHAT
+    FROM
+        ACHAT A
+        JOIN ARTICLE ART
+        ON A.ARTICLE = ART.IDARTICLE JOIN VIN V
+        ON ART.VIN = V.IDVIN;
+
+UPDATE AUDIT_ACHAT_VIN_View
+SET quantite = quantite - 10;
