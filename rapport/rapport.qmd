@@ -1,121 +1,120 @@
 ## Création et gestion des Triggers sous ORACLE
 
-### Trigger 1
+### Créer un trigger PL/SQL qui contrôle que toute insertion dans la table Client implique un âge supérieur à 18 ans.
 
 ```{.sql include="../triggers/trigger_1.sql" code-line-numbers="true"}
 ```
 
-### Trigger 2
+### Créer un trigger qui interdit d’acheter le Week End. Il interdit aussi la modification de la quantité ou bien l’insertion d’une quantité supérieure à 12. 
 
 ```{.sql include="../triggers/trigger_2.sql" code-line-numbers="true"}
 ```
 
-### Trigger 3
+### Créer un trigger PL/SQL qui contrôle que toute insertion dans la table Article implique une contenance supérieure à 25 et toute mise à jour de la contenance doit être supérieure à la valeur dans la base. 
 
 ```{.sql include="../triggers/trigger_3.sql" code-line-numbers="true"}
 ```
 
-### Trigger 4
+### Créer un trigger PL/SQL qui empêche d’effectuer une requête la nuit sur la table Vin. Entre 22h et 6h du matin !
 
 ```{.sql include="../triggers/trigger_4.sql" code-line-numbers="true"}
 ```
 
-### Trigger 5
+### Créer un trigger PL/SQL qui empêche d’annuler un achat ou de diminuer la quantité d’un article acheté ou d’augmenter la ristourne. 
 
 ```{.sql include="../triggers/trigger_5.sql" code-line-numbers="true"}
 ```
 
-### Trigger 6
+### Créer un trigger qui interdit d’acheter le même article moins de 3 jours avant un achat effectué de cet article. 
 
 ```{.sql include="../triggers/trigger_6.sql" code-line-numbers="true"}
 ```
 
-### Trigger 7
+### Écrire un trigger qui agit après une insertion dans la table ACHAT en remplissant la table AUDIT_ACHAT_VIN.
 
 ```{.sql include="../triggers/trigger_7.sql" code-line-numbers="true"}
 ```
 
-### Trigger 8
+### Proposer une méthode (Trigger ou autre technique) qui met à jour automatiquement la table suivante après chaque insertion dans la table Achat. **Track_Nombre_Client (idvin, vin_nom, vin_appelation, nombre_client)**. L’attribut **nombre_client** doit pour chaque vin acheté, comptabiliser le nombre de clients différent ayant achetés ce vin.
 
 ```{.sql include="../triggers/trigger_8.sql" code-line-numbers="true"}
 ```
 
-
 ## Création et gestion des vues sous ORACLE
 
-### Vue 1
+### Nous souhaitons utiliser le mécanisme des vues pour créer la table « **AUDIT_ACHAT_VIN** » vue précédemment. Proposez ci-dessous la requête de création de vue pour cette table. Veuillez nommer la vue à créer « **AUDIT_ACHAT_VIN_View** ». 
 
 ```{.sql include="../vues/vue_1.sql" code-line-numbers="true"}
 ```
 
-### Vue 2
+### Créer une vue appelée Regionale qui affiche la jointure entre les régions et les clients. Diminuer l'âge de tous les clients de cette vue d'une année. Cette modification a-t-elle été répercutée dans la table Client ? Supprimer de la vue (mais pas de la base) toutes les lignes correspondant à un client de plus de 60 ans.
 
 ```{.sql include="../vues/vue_2.sql" code-line-numbers="true"}
 ```
 
-### Vue 3
+### Créer une vue appelée Stock qui affiche la jointure entre les vins et les articles. À partir de cette vue, créer une autre vue appelée Affaire qui, pour chaque vin, donne le meilleur prix au litre possible. À partir de là, comment récupérer le vin qui correspond à la meilleure affaire ?
 
 ```{.sql include="../vues/vue_3.sql" code-line-numbers="true"}
 ```
 
-### Vue 4
+### Créer une vue appelée VinQuantité qui pour chaque vin (idVin, nom, appellation), donne la quantité achetée à ce jour. En déduire le vin le plus acheté et le moins acheté. ?
 
 ```{.sql include="../vues/vue_4.sql" code-line-numbers="true"}
 ```
 
-### Vue 5
+### Créer une vue qui pour chaque client affiche la quantité totale d’articles achetée à ce jour (tout article confondu). Créer une seconde vue qui affiche la quantité totale d’articles achetée par client et pour chaque article.
 
 ```{.sql include="../vues/vue_5.sql" code-line-numbers="true"}
 ```
 
-### Vue 6
+### Créer une vue qui pour chaque article affiche la quantité totale achetée à ce jour (tout client confondu). 
 
 ```{.sql include="../vues/vue_6.sql" code-line-numbers="true"}
 ```
 
-### Vue 7
+### A partir des deux vues précédentes, en déduire les requêtes suivantes :
 
 ```{.sql include="../vues/vue_7.sql" code-line-numbers="true"}
 ```
 
 ## Des fonctions, procédures et curseurs en PLSQL
 
-### Fonction 1
+### Créer une fonction PL/SQL qui prend en paramètres l’identifiant d’un client et l’identifiant d’un article et qui renvoie le prix payé par le client pour l’achat de l’article. Tester cette fonction avec un client et un article existant dans la base de données.
 
 ```{.sql include="../functions/function_1.sql" code-line-numbers="true"}
 ```
 
-### Fonction 2
+### Reprendre cette même fonction en considérant toutes les exceptions possibles : client inexistant, article inexistant, les exceptions prédéfinies NO_DATA_FOUND et TOO_MANY_ROWS. Tester.
 
 ```{.sql include="../functions/function_2.sql" code-line-numbers="true"}
 ```
 
-### Fonction 3
+### En utilisant la fonction précédente, écrire une procédure qui affiche pour chaque achat : - Le nom et l’appellation du vin acheté, le nom et la région du client et le prix payé.
 
 ```{.sql include="../functions/function_3.sql" code-line-numbers="true"}
 ```
 
-### Fonction 4
+### Dans un bloc PL/SQL anonyme, déclarer un curseur permettant de lire les données suivantes : idarticle, idclient, dateachat, quantité. Pour chaque achat lu par le curseur, afficher le nom du client, son âge et sa région, le nom et l’appellation du vin et la date de l’achat.
 
 ```{.sql include="../functions/function_4.sql" code-line-numbers="true"}
 ```
 
-### Fonction 5
+### Il vous est demandé d’établir pour chaque client, le nombre d’achats (nbAchat) réalisés pour chaque vin existant. Vous devez gérer tous les cas possibles : un client sans achat, un client sans achat pour un vin existant, un vin jamais acheté. La procédure à écrire mettra à jour la table RESULTAT suivante : **RESULTAT (idclient, nomClient, nomVin, nbAchat, prixTotal)**
 
 ```{.sql include="../functions/function_5.sql" code-line-numbers="true"}
 ```
 
-### Fonction 6
+### Ajouter la colonne saison dans la table achat. Cette colonne pourra avoir les valeurs suivantes : printemps, été, automne, hiver Créer une procédure qui met à jour tous les achats pour renseigner cette colonne. 
 
 ```{.sql include="../functions/function_6.sql" code-line-numbers="true"}
 ```
 
-### Fonction 7
+### Créer une procédure SQL qui augmente de n% (n en paramètre, compris entre 0 et 85 inclus) le prix de tous les articles de vins provenant d’une région r donnée en paramètre. Définissez les exceptions sur les valeurs de n et r.
 
 ```{.sql include="../functions/function_7.sql" code-line-numbers="true"}
 ```
 
-### Fonction 8
+### Proposer une fonction puis une procédure qui réutilise cette fonction pour mettre en œuvre une fonctionnalité qui vous semble intéressante pour la gestion de cette base de données. Il s’agit ici de mettre en pratique votre capacité à proposer un service intéressant pour la gestion du SI. 
 
 ```{.sql include="../functions/function_8.sql" code-line-numbers="true"}
 ```

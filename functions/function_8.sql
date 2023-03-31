@@ -1,6 +1,23 @@
 -- Proposer une fonction puis une procédure qui réutilise cette fonction pour mettre en œuvre une fonctionnalité qui vous semble intéressante pour la gestion de cette base de données.
 -- Il s’agit ici de mettre en pratique votre capacité à proposer un service intéressant pour la gestion du SI.
 
+CREATE OR REPLACE FUNCTION GET_QUANTITE_TOTALE(
+    P_ID_VIN NUMBER
+) RETURN NUMBER IS
+    QUANTITE_TOTALE NUMBER;
+BEGIN
+    SELECT
+        SUM(ACHAT.QUANTITE) INTO QUANTITE_TOTALE
+    FROM
+        ACHAT
+        JOIN VIN
+        ON VIN.IDVIN = P_ID_VIN JOIN ARTICLE
+        ON ARTICLE.VIN = VIN.IDVIN
+    WHERE
+        ACHAT.ARTICLE = ARTICLE.IDARTICLE;
+    RETURN QUANTITE_TOTALE;
+END;
+
 CREATE OR REPLACE PROCEDURE TOP_VIN AS
     CURSOR C_QUANTITE IS
         SELECT
