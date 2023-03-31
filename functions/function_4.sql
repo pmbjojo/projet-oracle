@@ -1,3 +1,2 @@
 -- Dans un bloc PL/SQL anonyme, déclarer un curseur permettant de lire les données suivantes : 
--- idarticle, idclient, dateachat, quantité. Pour chaque achat lu par le curseur, afficher le nom du 
--- client, son âge et sa région, le nom et l’appellation du vin et la date de l’achat. 
+-- idarticle, idclient, dateachat, quantité. Pour chaque achat lu par le curseur, afficher le nom du client, son âge et sa région, le nom et l’appellation du vin et la date de l’achat. 

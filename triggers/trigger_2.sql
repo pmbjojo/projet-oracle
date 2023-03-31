@@ -1,4 +1,6 @@
--- 2
+-- Créer un trigger qui interdit d’acheter le Week End. 
+-- Il interdit aussi la modification de la quantité ou bien l’insertion d’une quantité supérieure à 12.
+
 CREATE OR REPLACE TRIGGER INTERDIT_ACHAT_WEEKEND BEFORE
     INSERT OR UPDATE ON ACHAT FOR EACH ROW
 DECLARE
@@ -12,8 +14,9 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20002, 'La quantité ne doit pas dépasser 12');
     END IF;
 END;
+
  -- Test weekend
- INSERT INTO ACHAT VALUES (
+INSERT INTO ACHAT VALUES (
     22339,
     23,
     3,
@@ -21,8 +24,9 @@ END;
     10,
     7
 );
- -- Test quantitée
- INSERT INTO ACHAT VALUES (
+
+-- Test quantitée
+INSERT INTO ACHAT VALUES (
     22339,
     23,
     3,

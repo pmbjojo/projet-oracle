@@ -1,2 +1,2 @@
--- Créer  une  fonction  PL/SQL  qui  prend  en  paramètres  l’identifiant d’un client et l’identifiant d’un article et  qui renvoie  le  prix  payé  par  le  client  pour l’achat de l’article.
--- Tester  cette fonction avec un client et un article existant dans la base de données.
+-- Créer une fonction PL/SQL qui prend en paramètres l’identifiant d’un client et l’identifiant d’un article et qui renvoie le prix payé par le client pour l’achat de l’article.
+-- Tester cette fonction avec un client et un article existant dans la base de données.

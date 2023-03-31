@@ -1,3 +1,5 @@
+-- Créer un trigger qui interdit d’acheter le même article moins de 3 jours avant un achat effectué de cet article. 
+
 CREATE OR REPLACE TRIGGER EMPECHER_ACHAT_ARTICLE BEFORE
     INSERT ON ACHAT FOR EACH ROW
 DECLARE
@@ -15,8 +17,10 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Achat non autorisé : cet article a été acheté il y a moins de 3 jours');
     END IF;
 END;
- -- Tests
- INSERT INTO ACHAT VALUES (
+
+-- Tests
+
+INSERT INTO ACHAT VALUES (
     22341,
     23,
     3,
@@ -24,6 +28,7 @@ END;
     10,
     7
 );
+
 INSERT INTO ACHAT VALUES (
     22341,
     23,
@@ -32,6 +37,7 @@ INSERT INTO ACHAT VALUES (
     10,
     7
 );
+
 INSERT INTO ACHAT VALUES (
     22341,
     23,
@@ -40,6 +46,7 @@ INSERT INTO ACHAT VALUES (
     10,
     7
 );
+
 INSERT INTO ACHAT VALUES (
     22347,
     23,
@@ -48,6 +55,7 @@ INSERT INTO ACHAT VALUES (
     10,
     7
 );
+
 SELECT
     MAX(DATEACHAT)
 FROM

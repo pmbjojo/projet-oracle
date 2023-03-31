@@ -1,3 +1,2 @@
--- Proposer une fonction puis une procédure qui réutilise cette fonction pour mettre en œuvre une 
--- fonctionnalité qui vous semble intéressante pour la gestion de cette base de données. Il s’agit 
--- ici de mettre en pratique votre capacité à proposer un service intéressant pour la gestion du SI.
+-- Proposer une fonction puis une procédure qui réutilise cette fonction pour mettre en œuvre une fonctionnalité qui vous semble intéressante pour la gestion de cette base de données.
+-- Il s’agit ici de mettre en pratique votre capacité à proposer un service intéressant pour la gestion du SI.

@@ -1,2 +1,2 @@
 -- En utilisant la fonction précédente, écrire une procédure qui affiche pour chaque achat : 
--- - Le nom et l’appellation du vin acheté, le nom et la région du client et le prix payé. 
+-- Le nom et l’appellation du vin acheté, le nom et la région du client et le prix payé. 
