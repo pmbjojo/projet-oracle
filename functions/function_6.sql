@@ -1,0 +1,2 @@
+-- Ajouter la colonne saison dans la table achat. Cette colonne pourra avoir les valeurs suivantes : printemps, été, automne, hiver 
+-- Créer une procédure qui met à jour tous les achats pour renseigner cette colonne.  

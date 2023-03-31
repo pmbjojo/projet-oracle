@@ -1,6 +1,4 @@
-Introduction
-
-
+## Introduction
 
 ```uml
 Region (idregion, nom)
@@ -12,49 +10,81 @@ Achat (idachat, article*, client*, dateachat, quantite, ristourne)
 
 ## Création et gestion des Triggers sous ORACLE
 
-1. COUCOU
-```{.sql include="../trigger_1.sql" code-line-numbers="true"}
-```
-1. COUCOU
-```{.sql include="../trigger_2.sql" code-line-numbers="true"}
+###
+```{.sql include="../triggers/trigger_1.sql" code-line-numbers="true"}
 ```
 ###
-```{.sql include="../trigger_3.sql" code-line-numbers="true"}
+```{.sql include="../triggers/trigger_2.sql" code-line-numbers="true"}
 ```
 ###
-```{.sql include="../trigger_4.sql" code-line-numbers="true"}
+```{.sql include="../triggers/trigger_3.sql" code-line-numbers="true"}
 ```
 ###
-```{.sql include="../trigger_5.sql" code-line-numbers="true"}
+```{.sql include="../triggers/trigger_4.sql" code-line-numbers="true"}
 ```
 ###
-```{.sql include="../trigger_6.sql" code-line-numbers="true"}
+```{.sql include="../triggers/trigger_5.sql" code-line-numbers="true"}
 ```
 ###
-```{.sql include="../trigger_7.sql" code-line-numbers="true"}
+```{.sql include="../triggers/trigger_6.sql" code-line-numbers="true"}
 ```
 ###
+```{.sql include="../triggers/trigger_7.sql" code-line-numbers="true"}
+```
 ###
-```{.sql include="../trigger_8.sql" code-line-numbers="true"}
+```{.sql include="../triggers/trigger_8.sql" code-line-numbers="true"}
 ```
 
 ## Création et gestion des vues sous ORACLE
 
 ###
+```{.sql include="../vues/vue_1.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../vues/vue_2.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../vues/vue_3.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../vues/vue_4.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../vues/vue_5.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../vues/vue_6.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../vues/vue_7.sql" code-line-numbers="true"}
+```
+###
+```{.sql include="../vues/vue_8.sql" code-line-numbers="true"}
+```
 
 ## Des fonctions, procédures et curseurs en PLSQL
 
 ###
+```{.sql include="../functions/function_1.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../functions/function_2.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../functions/function_3.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../functions/function_4.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../functions/function_5.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../functions/function_6.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../functions/function_7.sql" code-line-numbers="true"}
+```
 ###
+```{.sql include="../functions/function_8.sql" code-line-numbers="true"}
+```
