@@ -11,64 +11,38 @@ CREATE TABLE RESULTAT(
     PRIX_TOTAL INTEGER
 );
 
-CREATE OR REPLACE PROCEDURE MAJ_RESULTAT AS
-    CURSOR C_CLIENTS IS
-        SELECT
-            IDCLIENT,
-            NOM
-        FROM
-            CLIENT;
-    CURSOR C_VINS IS
-        SELECT
-            IDVIN,
-            NOM
-        FROM
-            VIN;
-    V_NBACHAT   NUMBER;
-    V_PRIXTOTAL FLOAT;
+CREATE OR REPLACE PROCEDURE maj_resultat AS
+  CURSOR c_clients IS
+    SELECT IDCLIENT, NOM FROM Client;
+   CURSOR c_vins IS
+    SELECT IDVIN, NOM FROM Vin;
+  v_nbAchat INT;
+  v_prixTotal INT;
 BEGIN
-    FOR F_CLIENT IN C_CLIENTS LOOP
-        FOR F_VIN IN C_VINS LOOP
-            V_NBACHAT := 0;
-            V_PRIXTOTAL := 0;
-            SELECT
-                COUNT(*),
-                SUM(ARTICLE.PRIXHT) INTO V_NBACHAT,
-                V_PRIXTOTAL
-            FROM
-                ACHAT
-                JOIN ARTICLE
-                ON ACHAT.ARTICLE = ARTICLE.IDARTICLE
-                AND ARTICLE.VI = F_VIN
-            WHERE
-                ACHAT.CLIENT = F_CLIENT.IDCLIENT;
-            IF V_NBACHAT > 0 THEN
-                UPDATE RESULTAT
-                SET
-                    NBACHAT = NBACHAT,
-                    PRIXTOTAL = PRIXTOTAL
-                WHERE
-                    IDCLIENT = F_CLIENT.IDCLIENT
-                    AND IDVIN = F_VIN.IDVIN;
-                IF SQL%ROWCOUNT = 0 THEN
-                    INSERT INTO RESULTAT VALUES (
-                        F_CLIENT.IDCLIENT,
-                        F_CLIENT.NOM,
-                        F_VIN.NOM,
-                        NBACHAT,
-                        PRIXTOTAL
-                    );
-                END IF;
-            ELSE
-                DELETE FROM RESULTAT
-                WHERE
-                    IDCLIENT = F_CLIENT.IDCLIENT
-                    AND IDVIN = F_VIN.IDVIN;
-            END IF;
-        END LOOP;
+  FOR f_client IN c_clients LOOP
+    FOR f_vin IN c_vins LOOP
+      v_nbAchat := 0;
+      v_prixTotal := 0;
+      SELECT COUNT(*), SUM(ARTICLE.PRIXHT) INTO v_nbAchat, v_prixTotal
+      FROM ARTICLE
+      JOIN ACHAT ON ACHAT.ARTICLE = ARTICLE.IDARTICLE AND ARTICLE.VIN = f_vin.IDVIN
+      WHERE ACHAT.CLIENT = f_client.IDCLIENT;
+      
+      IF v_nbAchat > 0 THEN
+        UPDATE RESULTAT
+        SET NB_ACHAT = v_nbAchat, PRIX_TOTAL = v_prixTotal
+        WHERE NOM_CLIENT = f_client.NOM AND NOM_VIN = f_vin.NOM;
+        
+        IF SQL%ROWCOUNT = 0 THEN
+          INSERT INTO RESULTAT VALUES (f_client.IDCLIENT, f_client.NOM, f_vin.NOM, v_nbAchat, v_prixTotal);
+        END IF;
+      ELSE
+        DELETE FROM RESULTAT
+        WHERE TO_CHAR(NOM_CLIENT) = TO_CHAR(f_client.IDCLIENT) AND TO_CHAR(NOM_VIN) = f_vin.NOM;
+      END IF;
     END LOOP;
+  END LOOP;
 END;
 
--- Test
-
-EXECUTE MAJ_RESULTAT;
+--Test
+EXECUTE maj_resultat;
