@@ -1,14 +1,4 @@
 -- Nous souhaitons utiliser le mécanisme des vues pour créer la table « AUDIT_ACHAT_VIN » vue précédemment.
-
-CREATE TABLE AUDIT_ACHAT_VIN (
-    NOM_CLIENT VARCHAR2 (30) NOT NULL,
-    NOM_VIN VARCHAR2 (30) NOT NULL,
-    NOM_REGION_VIN VARCHAR2(20) NOT NULL,
-    APPELATION VARCHAR2 (30) NOT NULL,
-    QUANTITE_COMMANDEE INTEGER,
-    DATE_ACHAT DATE NOT NULL
-);
-
 -- Proposez ci-dessous la requête de création de vue pour cette table. 
 -- Veuillez nommer la vue à créer « AUDIT_ACHAT_VIN_View ». 
 
