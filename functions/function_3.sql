@@ -46,4 +46,5 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('-----------------------------------------');
     END LOOP;
 END;
+
 EXECUTE AFFICHER_ACHATS;

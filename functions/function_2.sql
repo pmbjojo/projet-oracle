@@ -1,2 +1,49 @@
--- Reprendre cette même fonction en considérant toutes les exceptions possibles : client 
--- inexistant, article inexistant, les exceptions prédéfinies NO_DATA_FOUND et TOO_MANY_ROWS. Tester.
+-- Reprendre cette même fonction en considérant toutes les exceptions possibles :
+-- client inexistant, article inexistant, les exceptions prédéfinies NO_DATA_FOUND et TOO_MANY_ROWS.
+-- Tester.
+
+CREATE OR REPLACE FUNCTION GET_PRIX_ACHAT_CLIENT(
+    IDCLIENT NUMBER,
+    IDARTICLE NUMBER
+) RETURN ARTICLE.PRIXHT%TYPE IS
+    PRIX_PAYE ARTICLE.PRIXHT%TYPE;
+BEGIN
+    SELECT
+        ARTICLE.PRIXHT INTO PRIX_PAYE
+    FROM
+        ACHAT
+        INNER JOIN ARTICLE
+        ON ARTICLE.IDARTICLE=ACHAT.ARTICLE
+    WHERE
+        ACHAT.CLIENT = IDCLIENT
+        AND ACHAT.ARTICLE = IDARTICLE
+        AND ROWNUM = 1;
+    RETURN PRIX_PAYE;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Client ou article introuvable');
+        RETURN NULL;
+END;
+
+-- Test
+
+SELECT
+    GET_PRIX_ACHAT_CLIENT(5,
+    212)
+FROM
+    DUAL;
+SELECT
+    GET_PRIX_ACHAT_CLIENT(128,
+    50000)
+FROM
+    DUAL;
+SELECT
+    GET_PRIX_ACHAT_CLIENT(2,
+    107)
+FROM
+    DUAL;
+SELECT
+    GET_PRIX_ACHAT_CLIENT(19,
+    94)
+FROM
+    DUAL;
