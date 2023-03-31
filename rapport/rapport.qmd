@@ -1,90 +1,121 @@
-## Introduction
-
-```uml
-Region (idregion, nom)
-Vin (idvin, nom, appellation, type, provenance*)
-Article (idarticle, millesime, contenance, prixht, vin*)
-Client (idclient, nom, age, habite*);
-Achat (idachat, article*, client*, dateachat, quantite, ristourne)
-```
-
 ## Création et gestion des Triggers sous ORACLE
 
-###
+### Trigger 1
+
 ```{.sql include="../triggers/trigger_1.sql" code-line-numbers="true"}
 ```
-###
+
+### Trigger 2
+
 ```{.sql include="../triggers/trigger_2.sql" code-line-numbers="true"}
 ```
-###
+
+### Trigger 3
+
 ```{.sql include="../triggers/trigger_3.sql" code-line-numbers="true"}
 ```
-###
+
+### Trigger 4
+
 ```{.sql include="../triggers/trigger_4.sql" code-line-numbers="true"}
 ```
-###
+
+### Trigger 5
+
 ```{.sql include="../triggers/trigger_5.sql" code-line-numbers="true"}
 ```
-###
+
+### Trigger 6
+
 ```{.sql include="../triggers/trigger_6.sql" code-line-numbers="true"}
 ```
-###
+
+### Trigger 7
+
 ```{.sql include="../triggers/trigger_7.sql" code-line-numbers="true"}
 ```
-###
+
+### Trigger 8
+
 ```{.sql include="../triggers/trigger_8.sql" code-line-numbers="true"}
 ```
 
+
 ## Création et gestion des vues sous ORACLE
 
-###
+### Vue 1
+
 ```{.sql include="../vues/vue_1.sql" code-line-numbers="true"}
 ```
-###
+
+### Vue 2
+
 ```{.sql include="../vues/vue_2.sql" code-line-numbers="true"}
 ```
-###
+
+### Vue 3
+
 ```{.sql include="../vues/vue_3.sql" code-line-numbers="true"}
 ```
-###
+
+### Vue 4
+
 ```{.sql include="../vues/vue_4.sql" code-line-numbers="true"}
 ```
-###
+
+### Vue 5
+
 ```{.sql include="../vues/vue_5.sql" code-line-numbers="true"}
 ```
-###
+
+### Vue 6
+
 ```{.sql include="../vues/vue_6.sql" code-line-numbers="true"}
 ```
-###
+
+### Vue 7
+
 ```{.sql include="../vues/vue_7.sql" code-line-numbers="true"}
-```
-###
-```{.sql include="../vues/vue_8.sql" code-line-numbers="true"}
 ```
 
 ## Des fonctions, procédures et curseurs en PLSQL
 
-###
+### Fonction 1
+
 ```{.sql include="../functions/function_1.sql" code-line-numbers="true"}
 ```
-###
+
+### Fonction 2
+
 ```{.sql include="../functions/function_2.sql" code-line-numbers="true"}
 ```
-###
+
+### Fonction 3
+
 ```{.sql include="../functions/function_3.sql" code-line-numbers="true"}
 ```
-###
+
+### Fonction 4
+
 ```{.sql include="../functions/function_4.sql" code-line-numbers="true"}
 ```
-###
+
+### Fonction 5
+
 ```{.sql include="../functions/function_5.sql" code-line-numbers="true"}
 ```
-###
+
+### Fonction 6
+
 ```{.sql include="../functions/function_6.sql" code-line-numbers="true"}
 ```
-###
+
+### Fonction 7
+
 ```{.sql include="../functions/function_7.sql" code-line-numbers="true"}
 ```
-###
+
+### Fonction 8
+
 ```{.sql include="../functions/function_8.sql" code-line-numbers="true"}
 ```

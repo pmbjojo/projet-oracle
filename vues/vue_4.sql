@@ -1,6 +1,6 @@
 -- Créer une vue appelée VinQuantité qui pour chaque vin (idVin, nom, appellation), donne la quantité achetée à ce jour.
 
-CREATE VIEW VINQUANTITE AS
+CREATE OR REPLACE VIEW VINQUANTITE AS
     SELECT
         IDVIN,
         NOM,

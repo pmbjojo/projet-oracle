@@ -7,16 +7,9 @@ output-file: rapport_JOURDAM_VOROS
 title-block-style: default
 title-block-banner: true
 author-title: Auteurs
-affiliations:
-  - id: eseo
-    name: ESEO Angers
 author: 
   - name: Joshua JOURDAM
-    affiliations:
-      - ref: eseo
   - name: Matthias VOROS
-    affiliations:
-      - ref: eseo
 date: today
 lang: fr
 format:
@@ -27,3 +20,13 @@ toc-depth: 2
 number-sections: true
 filters:
    - include-code-files
+abstract: |
+  ```uml
+  Region (idregion, nom)
+  Vin (idvin, nom, appellation, type, provenance*)
+  Article (idarticle, millesime, contenance, prixht, vin*)
+  Client (idclient, nom, age, habite*);
+  Achat (idachat, article*, client*, dateachat, quantite, ristourne)
+  ```
+language:
+  section-title-abstract: "Schéma logique"

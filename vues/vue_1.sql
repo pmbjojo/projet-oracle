@@ -4,7 +4,7 @@
 -- a) Diminuer la quantité commandée de tous les Vins de 10 à partir de la vue créée. 
 -- b) Cette modification sera-t-elle répercutée dans la table Achat ? Pourquoi ?
 
-CREATE VIEW AUDIT_ACHAT_VIN_VIEW AS
+CREATE OR REPLACE VIEW AUDIT_ACHAT_VIN_VIEW AS
     SELECT
         A.IDACHAT,
         V.IDVIN,
