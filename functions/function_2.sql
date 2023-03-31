@@ -31,19 +31,22 @@ SELECT
     GET_PRIX_ACHAT_CLIENT(5,
     212)
 FROM
-    DUAL;
+    DUAL; -- Pass
+
 SELECT
     GET_PRIX_ACHAT_CLIENT(128,
     50000)
 FROM
-    DUAL;
+    DUAL; -- Fail
+
 SELECT
     GET_PRIX_ACHAT_CLIENT(2,
     107)
 FROM
-    DUAL;
+    DUAL; -- Pass
+
 SELECT
     GET_PRIX_ACHAT_CLIENT(19,
     94)
 FROM
-    DUAL;
+    DUAL; -- Pass

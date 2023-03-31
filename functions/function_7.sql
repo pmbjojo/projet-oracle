@@ -32,4 +32,6 @@ BEGIN
     END IF;
 END;
 
+-- Test
+
 EXECUTE POURCENTAGE_PRIX(50, 1);

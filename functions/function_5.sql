@@ -69,4 +69,6 @@ BEGIN
     END LOOP;
 END;
 
+-- Test
+
 EXECUTE MAJ_RESULTAT;
