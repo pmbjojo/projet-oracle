@@ -70,17 +70,17 @@ FROM
     (
         SELECT
             REGION.NOM,
-            MAX(QUANTITE_TOTALE_ACHETEE*ARTICLE.CONTENANCE) AS VOLUME
+            SUM(QUANTITE_TOTALE_ACHETEE) AS VOLUME
         FROM
             REGION,
-            CLIENT,
+            VIN,
             ARTICLE,
             ACHAT,
             QUANTITE_TOTALE_ACHETEE
         WHERE
             ACHAT.ARTICLE = ARTICLE.IDARTICLE
-            AND ACHAT.CLIENT = CLIENT.IDCLIENT
-            AND CLIENT.HABITE = REGION.IDREGION
+            AND ARTICLE.VIN = VIN.IDVIN
+            AND VIN.PROVENANCE = REGION.IDREGION
         GROUP BY
             REGION.IDREGION,
             REGION.NOM
