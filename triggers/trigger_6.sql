@@ -18,7 +18,7 @@ BEGIN
     END IF;
 END;
 
--- Tests
+-- Test
 
 INSERT INTO ACHAT VALUES (
     22341,
@@ -27,7 +27,7 @@ INSERT INTO ACHAT VALUES (
     TO_DATE('13/03/2023', 'DD/MM/YYYY'),
     10,
     7
-);
+); -- Pass
 
 INSERT INTO ACHAT VALUES (
     22341,
@@ -36,7 +36,7 @@ INSERT INTO ACHAT VALUES (
     TO_DATE('14/03/2023', 'DD/MM/YYYY'),
     10,
     7
-);
+); -- Fail
 
 INSERT INTO ACHAT VALUES (
     22341,
@@ -45,20 +45,22 @@ INSERT INTO ACHAT VALUES (
     TO_DATE('15/03/2023', 'DD/MM/YYYY'),
     10,
     7
-);
+); -- Fail
 
 INSERT INTO ACHAT VALUES (
-    22347,
+    22348,
     23,
     3,
-    TO_DATE('15/03/2023', 'DD/MM/YYYY'),
+    TO_DATE('16/03/2023', 'DD/MM/YYYY'),
     10,
     7
-);
+); -- Fail
 
-SELECT
-    MAX(DATEACHAT)
-FROM
-    ACHAT
-WHERE
-    ARTICLE = 23;
+INSERT INTO ACHAT VALUES (
+    22348,
+    23,
+    3,
+    TO_DATE('17/03/2023', 'DD/MM/YYYY'),
+    10,
+    7
+); -- Pass (3 jours après le dernier achat)

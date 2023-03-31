@@ -16,6 +16,7 @@ BEGIN
 END;
 
  -- Test weekend
+
 INSERT INTO ACHAT VALUES (
     22339,
     23,
@@ -23,14 +24,33 @@ INSERT INTO ACHAT VALUES (
     TO_DATE('12/03/2023', 'DD/MM/YYYY'),
     10,
     7
-);
+); -- Fail
+
+INSERT INTO ACHAT VALUES (
+    22339,
+    23,
+    3,
+    TO_DATE('29/03/2023', 'DD/MM/YYYY'),
+    10,
+    7
+); -- Pass
 
 -- Test quantitée
+
 INSERT INTO ACHAT VALUES (
     22339,
     23,
     3,
-    TO_DATE('12/03/2023', 'DD/MM/YYYY'),
+    TO_DATE('29/03/2023', 'DD/MM/YYYY'),
+    15,
+    7
+); --Fail
+
+INSERT INTO ACHAT VALUES (
+    22339,
+    23,
+    3,
+    TO_DATE('29/03/2023', 'DD/MM/YYYY'),
     10,
     7
-);
+); -- Pass
